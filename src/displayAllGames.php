@@ -14,7 +14,7 @@ function displayAllGames($games)
     }
 
     if ($title === '') {
-        return 'No Gmaes Available';
+        return `No Games Available`;
     }
     return $title;
 }

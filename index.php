@@ -40,7 +40,7 @@ require 'src/displayAllGames.php';
 
         $gameModel = new GameModel($db);
         $games = $gameModel->getAllGames();
-        echo (DisplayAllGames($games));
+        echo DisplayAllGames($games);
         ?>
 
     </main>
