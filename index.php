@@ -1,5 +1,14 @@
+<?php
+
+use GameCollection\Models\GameModel;
+
+require_once 'vendor/autoload.php';
+require_once './src/DB.php';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,7 +30,19 @@
 
 <body>
 
-<h1>Website Template</h1>
+    <h1>Games Collection</h1>
+    <?php
 
+    $gameModel = new GameModel($db);
+    $games = $gameModel->getAllGames();
+
+    foreach ($games as $game) {
+        echo "<h2>$game->name</h2>";
+        echo "<p>$game->franchise</p>";
+        echo "<p>$game->price</p>";
+        echo "<p>$game->genre</p>";
+    }
+    ?>
 </body>
+
 </html>
