@@ -4,6 +4,7 @@ use GameCollection\Models\GameModel;
 
 require_once 'vendor/autoload.php';
 require_once './src/DB.php';
+require 'src/displayAllGames.php';
 
 ?>
 <!DOCTYPE html>
@@ -39,16 +40,7 @@ require_once './src/DB.php';
 
         $gameModel = new GameModel($db);
         $games = $gameModel->getAllGames();
-
-        foreach ($games as $game) {
-            echo '<span class="game">';
-            echo "<h2>$game->name</h2>";
-            echo "<p>Franchise: $game->franchise</p>";
-            echo "<p>Price: $game->price</p>";
-            echo "<p>Genre: $game->genre</p>";
-            echo '</span>';
-        }
-
+        echo (DisplayAllGames($games));
         ?>
 
     </main>
