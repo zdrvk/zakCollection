@@ -34,6 +34,7 @@ require 'src/displayAllGames.php';
     <header>
         <h1>Games Collection</h1>
     </header>
+    <div class="border"></div>
     <main>
 
         <?php
@@ -44,6 +45,7 @@ require 'src/displayAllGames.php';
         ?>
 
     </main>
+    <div class="border"></div>
     <footer>
         <p>Copyright blahblahblah
         </p>
