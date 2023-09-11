@@ -34,20 +34,23 @@ require_once './src/DB.php';
         <h1>Games Collection</h1>
     </header>
     <main>
-        <span class="game">
-            <?php
 
-            $gameModel = new GameModel($db);
-            $games = $gameModel->getAllGames();
+        <?php
 
-            foreach ($games as $game) {
-                echo "<h2>$game->name</h2>";
-                echo "<p>Franchise: $game->franchise</p>";
-                echo "<p>Price: $game->price</p>";
-                echo "<p>Genre: $game->genre</p>";
-            }
-            ?>
-        </span>
+        $gameModel = new GameModel($db);
+        $games = $gameModel->getAllGames();
+
+        foreach ($games as $game) {
+            echo '<span class="game">';
+            echo "<h2>$game->name</h2>";
+            echo "<p>Franchise: $game->franchise</p>";
+            echo "<p>Price: $game->price</p>";
+            echo "<p>Genre: $game->genre</p>";
+            echo '</span>';
+        }
+
+        ?>
+
     </main>
     <footer>
         <p>Copyright blahblahblah

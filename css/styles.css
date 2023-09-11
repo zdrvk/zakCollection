@@ -12,12 +12,22 @@ body {
 header {
     border-bottom: 2px solid goldenrod;
 }
+main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 1rem 0;
+}
 
 .game {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width: 10rem;
+    gap: 1rem;
+    width: 15rem;
+    padding: 1rem;
+    background-color: rgb(140, 203, 140);
+    border-radius: 10%;
 }
 
 footer {
