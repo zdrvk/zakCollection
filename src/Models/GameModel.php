@@ -33,7 +33,6 @@ class GameModel
                 $game['name'],
                 $game['franchise'],
                 $game['price'],
-                $game['genre_id'],
                 $game['genre']
             );
         }

@@ -6,4 +6,20 @@
 
 body {
     background-color: peachpuff;
+    padding: 10px;
+}
+
+header {
+    border-bottom: 2px solid goldenrod;
+}
+
+.game {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 10rem;
+}
+
+footer {
+    border-top: 2px solid goldenrod;
 }

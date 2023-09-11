@@ -28,21 +28,31 @@ require_once './src/DB.php';
     <script defer src="js/index.js"></script>
 </head>
 
+
 <body>
+    <header>
+        <h1>Games Collection</h1>
+    </header>
+    <main>
+        <span class="game">
+            <?php
 
-    <h1>Games Collection</h1>
-    <?php
+            $gameModel = new GameModel($db);
+            $games = $gameModel->getAllGames();
 
-    $gameModel = new GameModel($db);
-    $games = $gameModel->getAllGames();
-
-    foreach ($games as $game) {
-        echo "<h2>$game->name</h2>";
-        echo "<p>$game->franchise</p>";
-        echo "<p>$game->price</p>";
-        echo "<p>$game->genre</p>";
-    }
-    ?>
+            foreach ($games as $game) {
+                echo "<h2>$game->name</h2>";
+                echo "<p>Franchise: $game->franchise</p>";
+                echo "<p>Price: $game->price</p>";
+                echo "<p>Genre: $game->genre</p>";
+            }
+            ?>
+        </span>
+    </main>
+    <footer>
+        <p>Copyright blahblahblah
+        </p>
+    </footer>
 </body>
 
 </html>
