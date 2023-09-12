@@ -1,6 +1,6 @@
 <?php
 
-function displayAllGames($games)
+function displayAllGames(array $games)
 {
     $title = '';
     foreach ($games as $game) {
