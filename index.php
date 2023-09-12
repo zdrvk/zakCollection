@@ -1,5 +1,15 @@
+<?php
+
+use GameCollection\Models\GameModel;
+
+require_once 'vendor/autoload.php';
+require_once './src/DB.php';
+require 'src/displayAllGames.php';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,9 +29,27 @@
     <script defer src="js/index.js"></script>
 </head>
 
+
 <body>
+    <header>
+        <h1>Games Collection</h1>
+    </header>
+    <div class="border"></div>
+    <main>
 
-<h1>Website Template</h1>
+        <?php
 
+        $gameModel = new GameModel($db);
+        $games = $gameModel->getAllGames();
+        echo DisplayAllGames($games);
+        ?>
+
+    </main>
+    <div class="border"></div>
+    <footer>
+        <p>Copyright blahblahblah
+        </p>
+    </footer>
 </body>
+
 </html>
