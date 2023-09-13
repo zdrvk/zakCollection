@@ -16,8 +16,6 @@ $errors = formValidation($name, $franchise, $price, $genre_id);
 if ($errors !== '') {
     header("Location: addNewGame.php?errors=$errors");
 } else {
-
-
     $gameModel = new GameModel($db);
     $gameModel->addNewGame(
         $name,

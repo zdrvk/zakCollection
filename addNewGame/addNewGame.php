@@ -4,8 +4,8 @@ require_once '../src/DB.php';
 require '../src/displayAllGames.php';
 require '../src/displayAllGenres.php';
 
+use GameCollection\Models\GenreModel;
 
-use GameCollection\Models\GameModel;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,12 +48,9 @@ use GameCollection\Models\GameModel;
         <select name="genre_id">
             <option> Select </option>
             <?php
-            $gameModel = new GameModel($db);
+            $gameModel = new GenreModel($db);
             $genres = $gameModel->getAllGenres();
             echo displayAllGenres($genres);
-            // foreach ($genres as $genre) {
-            //     echo ("<option value='" . $genre['id'] . "'>" . $genre['genre'] . "</option>");
-            // }
             ?>
         </select><br><br>
 
