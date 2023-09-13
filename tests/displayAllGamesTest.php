@@ -29,7 +29,7 @@ class displayAllGamesTest extends TestCase
             )
         ];
 
-        $expected = '<span class="game"><h2>Mario</h2><p>Franchise: Mario</p><p>Price: 10.99</p><p>Genre: horror</p></span>';
+        $expected = '<div class="game"><h2>Mario</h2><br><p>Franchise: Mario</p><br><p>Price: £10.99</p><br><p>Genre: horror</p></div>';
 
         $result = displayAllGames($input);
 
