@@ -32,7 +32,10 @@ require 'src/displayAllGames.php';
 
 <body>
     <header>
-        <h1>Games Collection</h1>
+        <div class="header">
+            <a href='addNewGame/addNewGame.php'>Add New Game -> </a>
+            <h1>Games Collection</h1>
+        </div>
     </header>
     <div class="border"></div>
     <main>
