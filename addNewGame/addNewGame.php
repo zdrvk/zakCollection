@@ -2,6 +2,8 @@
 require_once '../vendor/autoload.php';
 require_once '../src/DB.php';
 require '../src/displayAllGames.php';
+require '../src/displayAllGenres.php';
+
 
 use GameCollection\Models\GameModel;
 ?>
@@ -34,23 +36,24 @@ use GameCollection\Models\GameModel;
     </header>
     <form method="post" action="newGame_form.php">
         <label for="name">Name:</label><br>
-        <input type="text" name="name" required><br>
+        <input type="text" name="name"><br>
 
         <label for="franchise">Franchise:</label><br>
-        <input type="text" name="franchise" required><br>
+        <input type="text" name="franchise"><br>
 
         <label for="price">Price (e.g., 10.99):</label><br>
-        <input type="text" name="price" pattern="\d+\.\d{2}" required><br>
+        <input type="text" name="price" pattern="\d+\.\d{2}"><br>
 
         <label for="genre">Genre:</label><br>
-        <select name="genre_id" required>
+        <select name="genre_id">
             <option> Select </option>
             <?php
             $gameModel = new GameModel($db);
             $genres = $gameModel->getAllGenres();
-            foreach ($genres as $genre) {
-                echo ("<option value='" . $genre['id'] . "'>" . $genre['genre'] . "</option>");
-            }
+            echo displayAllGenres($genres);
+            // foreach ($genres as $genre) {
+            //     echo ("<option value='" . $genre['id'] . "'>" . $genre['genre'] . "</option>");
+            // }
             ?>
         </select><br><br>
 

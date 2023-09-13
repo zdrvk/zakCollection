@@ -49,11 +49,6 @@ class GameModel
 
         $genres = $query->fetchAll();
 
-        // $genres = [];
-
-        // foreach ($data as $genre) {
-        //     $genres[] = $genre['genre'];
-        // }
         return $genres;
     }
 
