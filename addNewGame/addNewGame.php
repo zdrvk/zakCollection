@@ -27,7 +27,6 @@ use GameCollection\Models\GameModel;
     <script defer src="js/index.js"></script>
 </head>
 
-
 <body>
     <header>
         <a href="../index.php"> <- Back to Catalogue</a>

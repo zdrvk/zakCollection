@@ -6,9 +6,9 @@ function displayAllGames(array $games)
     foreach ($games as $game) {
         $title .=
             '<div class="game">' .
-            "<h2>$game->name</h2> <br><br>" .
-            "<p>Franchise: $game->franchise</p><br><br>" .
-            "<p>Price: £$game->price</p><br><br>" .
+            "<h2>$game->name</h2><br>" .
+            "<p>Franchise: $game->franchise</p><br>" .
+            "<p>Price: £$game->price</p><br>" .
             "<p>Genre: $game->genre</p>" .
             '</div>';
     }

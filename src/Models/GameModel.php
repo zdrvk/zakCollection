@@ -67,7 +67,6 @@ class GameModel
     INSERT INTO `games` (`name`, `franchise`, `price`, `genre_id`)
     VALUES (:name, :franchise, :price, :genre_id);
     ");
-
         $success = $query->execute([
             'name' => $name,
             'franchise' => $franchise,
