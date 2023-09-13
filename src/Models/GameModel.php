@@ -15,9 +15,11 @@ class GameModel
     }
     public function getAllGames(): array
     {
-        $query = $this->db->prepare("SELECT `games`.`name`,
+        $query = $this->db->prepare("SELECT `games`.`id`,
+        `games`.`name`,
         `games`.`franchise`,
         `games`.`price`,
+        `games`.`deleted`,
         `genre`.`genre`
         FROM `games`
             INNER JOIN `genre`
@@ -30,11 +32,14 @@ class GameModel
         $games = [];
 
         foreach ($data as $game) {
+
             $games[] = new Game(
+                $game['id'],
                 $game['name'],
                 $game['franchise'],
                 $game['price'],
-                $game['genre']
+                $game['genre'],
+                $game['deleted']
             );
         }
 
