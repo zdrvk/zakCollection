@@ -15,8 +15,9 @@ function formValidation($name, $franchise, $price, $genre_id)
     if (!preg_match("/^\d+\.\d{2}$/", $price)) {
         $errors .= "<p>Price must be in the format of 10.99.</p>";
     }
-    // if ($genre_id == "Select") this can be tricked in the inspector tho!
+    //this can be tricked in the inspector tho!
     if ($genre_id == "Select") {
+        //here ^^^^^^^^^^^^^    
         $errors .= "<p>Please select a genre.</p>";
     }
 

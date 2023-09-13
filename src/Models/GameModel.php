@@ -40,17 +40,6 @@ class GameModel
 
         return $games;
     }
-    public function getAllGenres()
-    {
-        $query = $this->db->prepare("SELECT`genre`.`genre`,`genre`.`id`  
-        FROM `genre`;");
-
-        $query->execute();
-
-        $genres = $query->fetchAll();
-
-        return $genres;
-    }
 
     public function addNewGame(
         string $name,
