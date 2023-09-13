@@ -11,7 +11,7 @@ function displayAllGames(array $games)
                 "<p>Franchise: $game->franchise</p><br>" .
                 "<p>Price: £$game->price</p><br>" .
                 "<p>Genre: $game->genre</p>" .
-                '<form method="post" action="softDeleteGame.php">' .
+                '<form method="post" action="src/softDeleteGame.php">' .
                 '<input type="hidden" name="gameId" value="' . $game->id . '">' .
                 '<button type="submit">Delete</button>' .
                 '</form>' .
