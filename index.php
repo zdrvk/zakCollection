@@ -14,7 +14,7 @@ require 'src/displayAllGames.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Template</title>
+    <title>Game Collection</title>
 
     <meta name="description" content="Template HTML file">
     <meta name="author" content="iO Academy">
@@ -34,6 +34,7 @@ require 'src/displayAllGames.php';
     <header>
         <div class="header">
             <a href='addNewGame/addNewGame.php'>Add New Game -> </a>
+            <a href='deletedGames/deletedGames.php'>Deleted Games</a>
             <h1>Games Collection</h1>
         </div>
     </header>
@@ -44,7 +45,7 @@ require 'src/displayAllGames.php';
 
         $gameModel = new GameModel($db);
         $games = $gameModel->getAllGames();
-        echo DisplayAllGames($games);
+        echo displayAllGames($games);
         ?>
 
     </main>
