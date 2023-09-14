@@ -1,12 +1,15 @@
 <?php
+
+use GameCollection\Models\GameModel;
+
+require_once '../vendor/autoload.php';
 require_once 'DB.php';
 $id = $_POST['gameId'];
 
-$query = $db->prepare("
-UPDATE `games` SET `games`.`deleted` = 1 WHERE `games`.`id` = :id;
-");
+$softDelete = new GameModel($db);
+$success = $softDelete->softDeleteGame($id);
 
-$query->bindParam(':id', $id, PDO::PARAM_INT);
-$query->execute();
-
-header("Location: ../index.php");
+if (!$success) {
+    return header("Location: ../index.php?error=1");
+}
+return header("Location: ../index.php");

@@ -77,4 +77,17 @@ class GameModel
             return false;
         }
     }
+
+    public function softDeleteGame($id): bool
+    {
+
+        $query = $this->db->prepare("
+        UPDATE `games` SET `games`.`deleted` = 1 WHERE `games`.`id` = :id;
+        ");
+        $query->bindParam(':id', $id, PDO::PARAM_INT);
+
+        $success = $query->execute();
+
+        return $success;
+    }
 }

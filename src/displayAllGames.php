@@ -18,6 +18,9 @@ function displayAllGames(array $games)
                 '</div>';
         }
     }
+    if (isset($_GET['error'])) {
+        echo '<p>Delete Unsuccessful!</p>';
+    }
     if ($title === '') {
         return `No Games Available`;
     }
