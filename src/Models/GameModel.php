@@ -40,4 +40,25 @@ class GameModel
 
         return $games;
     }
+
+    public function addNewGame(
+        string $name,
+        string $franchise,
+        float $price,
+        int $genre_id
+    ) {
+        $query = $this->db->prepare("
+    INSERT INTO `games` (`name`, `franchise`, `price`, `genre_id`)
+    VALUES (:name, :franchise, :price, :genre_id);
+    ");
+        $success = $query->execute([
+            'name' => $name,
+            'franchise' => $franchise,
+            'price' => $price,
+            'genre_id' => $genre_id
+        ]);
+        if (!$success) {
+            return false;
+        }
+    }
 }

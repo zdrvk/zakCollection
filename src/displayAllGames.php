@@ -5,12 +5,12 @@ function displayAllGames(array $games)
     $title = '';
     foreach ($games as $game) {
         $title .=
-            '<span class="game">' .
-            "<h2>$game->name</h2>" .
-            "<p>Franchise: $game->franchise</p>" .
-            "<p>Price: $game->price</p>" .
+            '<div class="game">' .
+            "<h2>$game->name</h2><br>" .
+            "<p>Franchise: $game->franchise</p><br>" .
+            "<p>Price: £$game->price</p><br>" .
             "<p>Genre: $game->genre</p>" .
-            '</span>';
+            '</div>';
     }
 
     if ($title === '') {
