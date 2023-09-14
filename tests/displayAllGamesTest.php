@@ -22,14 +22,16 @@ class displayAllGamesTest extends TestCase
     {
         $input = [
             new Game(
+                4,
                 'Mario',
                 'Mario',
                 10.99,
-                'horror'
+                'horror',
+                0
             )
         ];
 
-        $expected = '<div class="game"><h2>Mario</h2><br><p>Franchise: Mario</p><br><p>Price: £10.99</p><br><p>Genre: horror</p></div>';
+        $expected = '<div class="game"><h2>Mario</h2><br><p>Franchise: Mario</p><br><p>Price: £10.99</p><br><p>Genre: horror</p><form method="post" action="src/softDeleteGame.php"><input type="hidden" name="gameId" value="4"><button type="submit">Delete</button></form></div>';
 
         $result = displayAllGames($input);
 
