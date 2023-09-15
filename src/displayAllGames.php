@@ -23,7 +23,9 @@ function displayAllGames(array $games)
         echo '<p>Delete Unsuccessful!</p>';
     }
     if ($title === '') {
-        return `No Games Available`;
+        return 'No Games Available';
     }
     return $title;
 }
+
+//"SELECT * FROM `games` WHERE `deleted` = 0"
