@@ -13,8 +13,13 @@ class GameModel
     {
         $this->db = $db;
     }
-    public function getAllGames(): array
+    public function getAllGames(bool $deleted): array
     {
+        if ($deleted) {
+            $queryDeleted = 1;
+        } else {
+            $queryDeleted = 0;
+        }
         $query = $this->db->prepare("SELECT `games`.`id`,
         `games`.`name`,
         `games`.`franchise`,
@@ -23,7 +28,8 @@ class GameModel
         `genre`.`genre`
         FROM `games`
             INNER JOIN `genre`
-             ON `games`.`genre_id` = `genre`.`id`");
+             ON `games`.`genre_id` = `genre`.`id`
+             WHERE `deleted` = $queryDeleted ");
 
         $query->execute();
 
@@ -67,13 +73,14 @@ class GameModel
         }
     }
 
-    public function softDeleteGame($id): bool
+    public function toggleGameStatus($id, $deleted): bool
     {
+        $setDeleted = ($deleted == 1) ? 0 : 1;
 
-        $query = $this->db->prepare("
-        UPDATE `games` SET `games`.`deleted` = 1 WHERE `games`.`id` = :id;
-        ");
+        $query = $this->db->prepare("UPDATE `games` SET `games`.`deleted` = :setDeleted WHERE `games`.`id` = :id");
+
         $query->bindParam(':id', $id, PDO::PARAM_INT);
+        $query->bindParam(':setDeleted', $setDeleted, PDO::PARAM_INT);
 
         $success = $query->execute();
 
