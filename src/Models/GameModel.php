@@ -13,8 +13,13 @@ class GameModel
     {
         $this->db = $db;
     }
-    public function getAllGames(): array
+    public function getAllGames(bool $deleted): array
     {
+        if ($deleted) {
+            $queryDeleted = 1;
+        } else {
+            $queryDeleted = 0;
+        }
         $query = $this->db->prepare("SELECT `games`.`id`,
         `games`.`name`,
         `games`.`franchise`,
@@ -23,7 +28,8 @@ class GameModel
         `genre`.`genre`
         FROM `games`
             INNER JOIN `genre`
-             ON `games`.`genre_id` = `genre`.`id`");
+             ON `games`.`genre_id` = `genre`.`id`
+             WHERE `deleted` = $queryDeleted ");
 
         $query->execute();
 

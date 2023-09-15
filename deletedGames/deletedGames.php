@@ -36,7 +36,7 @@ use GameCollection\Models\GameModel;
                 <?php
 
                 $gameModel = new GameModel($db);
-                $games = $gameModel->getAllGames();
+                $games = $gameModel->getAllGames(true);
                 echo displayDeletedGames($games);
 
                 ?>
