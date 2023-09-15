@@ -31,31 +31,40 @@ use GameCollection\Models\GenreModel;
 
 <body>
     <header>
-        <a href="../index.php"> <- Back to Catalogue</a>
-                <h1>Add New Game</h1>
+        <div class="header">
+            <h1>Add New Game</h1>
+        </div>
     </header>
-    <form method="post" action="newGame_form.php">
-        <label for="name">Name:</label><br>
-        <input type="text" name="name"><br>
+    <div class="border">
 
-        <label for="franchise">Franchise:</label><br>
-        <input type="text" name="franchise"><br>
+        <a class="links" href="../index.php"> <- Back to Catalogue</a>
+    </div>
+    <main>
+        <div class="container">
+            <form class="newGame" method="post" action="newGame_form.php">
+                <label for="name">Name:</label>
+                <input type="text" name="name"><br>
 
-        <label for="price">Price (e.g., 10.99):</label><br>
-        <input type="text" name="price" pattern="\d+\.\d{2}"><br>
+                <label for="franchise">Franchise:</label>
+                <input type="text" name="franchise"><br>
 
-        <label for="genre">Genre:</label><br>
-        <select name="genre_id">
-            <option> Select </option>
-            <?php
-            $gameModel = new GenreModel($db);
-            $genres = $gameModel->getAllGenres();
-            echo displayAllGenres($genres);
-            ?>
-        </select><br><br>
+                <label for="price">Price (e.g., 10.99):</label>
+                <input type="text" name="price" pattern="\d+\.\d{2}"><br>
 
-        <input class="button " type="submit" value="Add Game">
-    </form>
+                <label for="genre">Genre:</label>
+                <select name="genre_id">
+                    <option> Select </option>
+                    <?php
+                    $gameModel = new GenreModel($db);
+                    $genres = $gameModel->getAllGenres();
+                    echo displayAllGenres($genres);
+                    ?>
+                </select><br><br>
+
+                <input class="button " type="submit" value="Add Game">
+            </form>
+        </div>
+    </main>
     <div class="error">
         <?php
         if (isset($_GET['errors'])) {

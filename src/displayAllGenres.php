@@ -1,6 +1,6 @@
 <?php
 
-function displayAllGenres(array $genres)
+function displayAllGenres($genres)
 {
     $option = '';
     foreach ($genres as $genre) {

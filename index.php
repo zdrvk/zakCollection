@@ -39,21 +39,26 @@ require 'src/displayAllGames.php';
     </header>
     <div class="border">
         <a class="links" href='addNewGame/addNewGame.php'>Add New Game -> </a>
-        <a class="links" href='deletedGames/deletedGames.php'>Deleted Games</a>
+        <a class="links" href='deletedGames/deletedGames.php'>Deleted Games -></a>
     </div>
     <main>
+        <div class="outer-container">
+            <div class="game-grid">
+                <?php
 
-        <?php
-
-        $gameModel = new GameModel($db);
-        $games = $gameModel->getAllGames(false);
-        echo displayAllGames($games);
-        ?>
-
+                $gameModel = new GameModel($db);
+                $games = $gameModel->getAllGames(false);
+                echo displayAllGames($games);
+                ?>
+            </div>
+        </div>
     </main>
-    <div class="border"></div>
+    <div class="border">
+        <p> </p>
+    </div>
     <footer>
-        <p>Copyright blahblahblah
+        <p>
+            Copyright hahahahaha dont touch
         </p>
     </footer>
 </body>

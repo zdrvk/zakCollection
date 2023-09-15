@@ -15,7 +15,7 @@ use GameCollection\Models\GameModel;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Add New Game</title>
+    <title>Deleted Games</title>
 
     <meta name="description" content="Template HTML file">
     <meta name="author" content="iO Academy">
@@ -31,8 +31,15 @@ use GameCollection\Models\GameModel;
 </head>
 
 <body>
+    <h1>Deleted Games</h1>
+    </div>
+    </header>
+    <div class="border">
+        <a class="links" href="../index.php"><-- Catalogue</a>
+    </div>
     <main>
-        <a href="../index.php"><-- Catalogue</a>
+        <div class="outer-container">
+            <div class="game-grid">
                 <?php
 
                 $gameModel = new GameModel($db);
@@ -40,6 +47,7 @@ use GameCollection\Models\GameModel;
                 echo displayDeletedGames($games);
 
                 ?>
-
+            </div>
+        </div>
     </main>
 </body>
